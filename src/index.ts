@@ -23,7 +23,7 @@ const createWindow = (): void => {
     },
     autoHideMenuBar: true,
     titleBarStyle: "hidden",
-    icon: path.join(__dirname, "dino-icon.ico"),
+    // icon: path.join(__dirname, "dino-icon"),
   });
   manaTickWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
   manaTickWindow.setAlwaysOnTop(true, "screen-saver");
