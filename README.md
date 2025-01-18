@@ -4,7 +4,7 @@ Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[https://www.youtube.com/watch?v=FmZEWCTDMsM](https://www.youtube.com/watch?v=FmZEWCTDMsM)
 
 ### Install
-- Download the Windows installer from the releases page:  [Dinodna.Mana.Ticker-1.0.0.Setup.exe](https://github.com/mgammon/quarm-dinodna-mana-ticker/releases/download/untagged-fc280f2f144d49458d89/Dinodna.Mana.Ticker-1.0.0.Setup.exe)
+- Download the Windows installer from the releases page:  [Dinodna.Mana.Ticker-1.0.0.Setup.exe](https://github.com/mgammon/quarm-dinodna-mana-ticker/releases/download/v1.0.0/Dinodna.Mana.Ticker-1.0.0.Setup.exe)
 
 ### Troubleshooting
 - If you're chilling at 100% mana, it won't sync; you actually need to regen a point of mana.
