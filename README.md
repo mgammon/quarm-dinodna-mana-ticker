@@ -13,6 +13,7 @@ Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast 
 - [Zeal](https://github.com/iamclint/Zeal) is required!  Make sure the version isn't ancient.
 - If you get a janky cursor after dragging or resizing the bar on top of the EQ Client, tab out and back in.
 - Level 1 characters will not sync.  This is to prevent mules from messing up syncs on your actual character.
+- If your syncs are way off, check your Zeal /pipedelay; the lower it is, the more accurate you'll be (100 is a good value!)
 
 ### Build (requires NodeJS, but not >= 23)
     git clone https://github.com/mgammon/quarm-dinodna-mana-ticker.git

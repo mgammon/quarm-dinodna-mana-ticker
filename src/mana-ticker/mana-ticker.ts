@@ -6,6 +6,7 @@ const castingTickMark = document.getElementById('casting-tick-mark') as HTMLElem
 
 type ZealWindow = Window & { zeal: { onZealPipes: (cb: (pipes: ZealPipe[]) => void) => void } };
 
+const levelOneCharacters = new Set<string>();
 const zealWindow = window as unknown as ZealWindow;
 
 let lastMana = 0;
@@ -26,6 +27,11 @@ zealWindow.zeal.onZealPipes((pipes) => {
 });
 
 const handleGaugeUpdates = (pipe: ZealPipe) => {
+  // Don't update based on level 1 characters
+  if (levelOneCharacters.has(pipe.character)) {
+    return;
+  }
+
   // Update casting tick mark
   pipe.data
     .filter((datum) => datum.type === 7)
@@ -65,8 +71,9 @@ const handleGaugeUpdates = (pipe: ZealPipe) => {
 };
 
 const handleLabelUpdates = (pipe: ZealPipe) => {
-  // Don't try to track mana ticks for level 1 characters
+  // Don't update based on level 1 characters
   if (pipe.data.some((datum) => datum.type === LabelType.Level && datum.value === '1')) {
+    levelOneCharacters.add(pipe.character);
     return;
   }
 
