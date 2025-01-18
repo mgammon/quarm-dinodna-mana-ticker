@@ -1,10 +1,10 @@
-import { LabelType, ZealPipe } from "../zeal/zeal-pipes";
+import { LabelType, ZealPipe } from '../zeal/zeal-pipes';
 
-const manaTickFill = document.getElementById("mana-tick-fill") as HTMLElement;
-const manaTickAmount = document.getElementById("tick-amount") as HTMLElement;
-const castingTickMark = document.getElementById("casting-tick-mark") as HTMLElement;
+const manaTickFill = document.getElementById('mana-tick-fill') as HTMLElement;
+const manaTickAmount = document.getElementById('tick-amount') as HTMLElement;
+const castingTickMark = document.getElementById('casting-tick-mark') as HTMLElement;
 
-type ZealWindow = Window & { zeal: { onZealPipes: ((cb: (pipes: ZealPipe[]) => void) => void) } }
+type ZealWindow = Window & { zeal: { onZealPipes: (cb: (pipes: ZealPipe[]) => void) => void } };
 
 const zealWindow = window as unknown as ZealWindow;
 
@@ -15,7 +15,7 @@ let castDelay = 50;
 let lastCastStartedAt: number | undefined = undefined;
 let lastNotCastingAt: number | undefined = undefined;
 
-zealWindow.zeal.onZealPipes(pipes => {
+zealWindow.zeal.onZealPipes((pipes) => {
   pipes.forEach((pipe) => {
     if (pipe.type === 1) {
       handleLabelUpdates(pipe);
@@ -48,8 +48,7 @@ const handleGaugeUpdates = (pipe: ZealPipe) => {
         const percentDone = 1000 - castingLeft;
         const timeElapsed = Date.now() - lastCastStartedAt;
         const percentLeft = castingLeft;
-        const timeUntilFinishedCasting =
-          timeElapsed * (percentLeft / percentDone);
+        const timeUntilFinishedCasting = timeElapsed * (percentLeft / percentDone);
         const willFinishCastingAt = Date.now() + timeUntilFinishedCasting;
         const nextManaTickAt = lastManaTickAt + 6_000;
         const castFinishBuffer = 100; // will prooobably miss the tick if you only have 100ms between cast finish and sitting
@@ -58,8 +57,7 @@ const handleGaugeUpdates = (pipe: ZealPipe) => {
         if (willFinishCastingAt + castFinishBuffer > nextManaTickAt) {
           tickWillMiss = true;
         } else if (timeElapsed > 150) {
-          castingPercentOnManaTickBar =
-            (willFinishCastingAt - lastManaTickAt) / 6000;
+          castingPercentOnManaTickBar = (willFinishCastingAt - lastManaTickAt) / 6000;
         }
       }
       updateCastingStatus(tickWillMiss, castingPercentOnManaTickBar);
@@ -67,6 +65,11 @@ const handleGaugeUpdates = (pipe: ZealPipe) => {
 };
 
 const handleLabelUpdates = (pipe: ZealPipe) => {
+  // Don't try to track mana ticks for level 1 characters
+  if (pipe.data.some((datum) => datum.type === LabelType.Level && datum.value === '1')) {
+    return;
+  }
+
   // Mana update
   pipe.data
     .filter((datum) => datum.type === LabelType.Mana)
@@ -79,7 +82,7 @@ const handleLabelUpdates = (pipe: ZealPipe) => {
       const diff = currentMana - lastMana;
       lastMana = currentMana;
       if (diff > 0) {
-        manaTickFill.classList.remove("pending");
+        manaTickFill.classList.remove('pending');
         lastManaTickAt = Date.now();
         resetManaTick();
         resetTickAmount(diff);
@@ -94,15 +97,15 @@ const handleLabelUpdates = (pipe: ZealPipe) => {
 
 const updateCastingStatus = (tickWillMiss: boolean, castingPercentOnManaTickBar: number) => {
   if (tickWillMiss) {
-    manaTickFill.classList.add("tick-will-miss");
+    manaTickFill.classList.add('tick-will-miss');
   } else {
-    manaTickFill.classList.remove("tick-will-miss");
+    manaTickFill.classList.remove('tick-will-miss');
   }
 
   if (!castingPercentOnManaTickBar) {
-    castingTickMark.classList.add("not-casting");
+    castingTickMark.classList.add('not-casting');
   } else {
-    castingTickMark.classList.remove("not-casting");
+    castingTickMark.classList.remove('not-casting');
   }
 
   const castingPosition = `${castingPercentOnManaTickBar * 100}%`;
@@ -119,14 +122,13 @@ const resetTickAmount = (lastManaTickAmount: number) => {
       manaTickAmount.classList.add('fade-out');
     }, 25);
   }
-}
+};
 
 const resetManaTick = () => {
   manaTickFill.style.transition = 'none';
   manaTickFill.style.width = '0';
   setTimeout(() => {
-    manaTickFill.style.transition = 'width 5975ms linear'
+    manaTickFill.style.transition = 'width 5975ms linear';
     manaTickFill.style.width = `100%`;
   }, 25);
 };
-

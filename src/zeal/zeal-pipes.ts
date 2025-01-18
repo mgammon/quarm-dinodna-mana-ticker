@@ -1,11 +1,10 @@
-
 export enum PipeType {
   Log,
   Label, // value is string
   Gauge, // value is number
   Player,
   Custom,
-  Raid
+  Raid,
 }
 
 export enum GaugeType {
@@ -31,7 +30,7 @@ export enum GaugeType {
   GroupPetHp3,
   GroupPetHp4,
   GroupPetHp5,
-  ExperiencePerHour = 23
+  ExperiencePerHour = 23,
 }
 
 export enum LabelType {
@@ -115,12 +114,12 @@ export enum LabelType {
   TargetPetOwner,
   Mana = 124,
   MaxMana,
-  CastingSpellName = 134
+  CastingSpellName = 134,
 }
 
 export interface ZealPipe {
   character: string;
-  data: { type: number, value: string | number }[];
+  data: { type: number; value: string | number }[];
   type: number;
   data_len: number;
 }

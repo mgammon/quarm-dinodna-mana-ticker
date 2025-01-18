@@ -1,2 +1,2 @@
-import './index.css';
-import './mana-tick-bar/mana-tick-bar'
+import './mana-ticker/mana-ticker.css';
+import './mana-ticker/mana-ticker';

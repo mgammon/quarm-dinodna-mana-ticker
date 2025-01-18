@@ -4,7 +4,7 @@ Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[https://www.youtube.com/watch?v=FmZEWCTDMsM](https://www.youtube.com/watch?v=FmZEWCTDMsM)
 
 ### Install
-- Download the Windows installer from the releases page:  [Dinodna.Mana.Ticker-1.0.0.Setup.exe](https://github.com/mgammon/quarm-dinodna-mana-ticker/releases/download/v1.0.0/Dinodna.Mana.Ticker-1.0.0.Setup.exe)
+- Download the Windows installer from the [releases page](https://github.com/mgammon/quarm-dinodna-mana-ticker/releases)
 
 ### Troubleshooting
 - If you're chilling at 100% mana, it won't sync; you actually need to regen a point of mana.
@@ -12,6 +12,7 @@ Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast 
 - Manastone, bard mana pulse, necro twitches will reset the bar, putting it out of sync.  It'll sync back on your next server based mana tick.
 - [Zeal](https://github.com/iamclint/Zeal) is required!  Make sure the version isn't ancient.
 - If you get a janky cursor after dragging or resizing the bar on top of the EQ Client, tab out and back in.
+- Level 1 characters will not sync.  This is to prevent mules from messing up syncs on your actual character.
 
 ### Build (requires NodeJS, but not >= 23)
     git clone https://github.com/mgammon/quarm-dinodna-mana-ticker.git

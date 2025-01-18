@@ -14,7 +14,7 @@ import { rendererConfig } from './webpack.renderer.config';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    icon: 'dino-icon'
+    icon: 'dino-icon',
   },
   rebuildConfig: {},
   makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
@@ -54,12 +54,12 @@ const config: ForgeConfig = {
       config: {
         repository: {
           owner: 'mgammon',
-          name: 'quarm-dinodna-mana-ticker'
+          name: 'quarm-dinodna-mana-ticker',
         },
-        prerelease: true
-      }
-    }
-  ]
+        prerelease: true,
+      },
+    },
+  ],
 };
 
 export default config;

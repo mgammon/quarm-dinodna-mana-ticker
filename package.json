@@ -1,9 +1,10 @@
 {
   "name": "dinodna-mana-ticker",
   "productName": "Dinodna Mana Ticker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mana tick bar for Project Quarm.  Requires Zeal!  Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast will take longer than the next tick, and a cast finish time marker.",
   "main": ".webpack/main",
+  "repository": "github:mgammon/quarm-dinodna-mana-tracker",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -12,29 +13,29 @@
     "lint": "eslint --ext .ts,.tsx ."
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.6.0",
-    "@electron-forge/maker-deb": "^7.6.0",
-    "@electron-forge/maker-rpm": "^7.6.0",
-    "@electron-forge/maker-squirrel": "^7.6.0",
-    "@electron-forge/maker-zip": "^7.6.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
-    "@electron-forge/plugin-fuses": "^7.6.0",
-    "@electron-forge/plugin-webpack": "^7.6.0",
-    "@electron-forge/publisher-github": "^7.6.0",
-    "@electron/fuses": "^1.8.0",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "@vercel/webpack-asset-relocator-loader": "^1.7.3",
-    "css-loader": "^6.11.0",
+    "@electron-forge/cli": "7.6.0",
+    "@electron-forge/maker-deb": "7.6.0",
+    "@electron-forge/maker-rpm": "7.6.0",
+    "@electron-forge/maker-squirrel": "7.6.0",
+    "@electron-forge/maker-zip": "7.6.0",
+    "@electron-forge/plugin-auto-unpack-natives": "7.6.0",
+    "@electron-forge/plugin-fuses": "7.6.0",
+    "@electron-forge/plugin-webpack": "7.6.0",
+    "@electron-forge/publisher-github": "7.6.0",
+    "@electron/fuses": "1.8.0",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.3",
+    "css-loader": "6.11.0",
     "electron": "34.0.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-import": "^2.31.0",
-    "fork-ts-checker-webpack-plugin": "^7.3.0",
-    "node-loader": "^2.1.0",
-    "style-loader": "^3.3.4",
-    "ts-loader": "^9.5.2",
-    "ts-node": "^10.9.2",
-    "typescript": "~4.5.4"
+    "eslint": "8.57.1",
+    "eslint-plugin-import": "2.31.0",
+    "fork-ts-checker-webpack-plugin": "7.3.0",
+    "node-loader": "2.1.0",
+    "style-loader": "3.3.4",
+    "ts-loader": "9.5.2",
+    "ts-node": "10.9.2",
+    "typescript": "4.5.4"
   },
   "keywords": [],
   "author": {
@@ -42,8 +43,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-settings": "^4.0.4",
-    "electron-squirrel-startup": "^1.0.1",
-    "find-process": "^1.4.10"
+    "electron-settings": "4.0.4",
+    "electron-squirrel-startup": "1.0.1",
+    "find-process": "1.4.10",
+    "update-electron-app": "3.1.0"
   }
 }
