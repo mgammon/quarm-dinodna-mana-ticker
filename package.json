@@ -1,7 +1,7 @@
 {
   "name": "dinodna-mana-ticker",
   "productName": "Dinodna Mana Ticker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mana tick bar for Project Quarm.  Requires Zeal!  Auto-syncing mana tick bar with tick amount, coloring to let you know if a cast will take longer than the next tick, and a cast finish time marker.",
   "main": "dist/index.js",
   "author": "Dinodna",
@@ -33,7 +33,6 @@
     "@bugsnag/js": "^8.1.2",
     "@bugsnag/plugin-angular": "^8.1.2",
     "electron-squirrel-startup": "^1.0.1",
-    "find-process": "^1.4.10",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "update-electron-app": "^3.1.0",

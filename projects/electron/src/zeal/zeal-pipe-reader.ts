@@ -1,9 +1,9 @@
 import net from 'net';
 import { Socket } from 'net';
-import find from 'find-process';
 import { BrowserWindow } from 'electron';
 import { PipeType, ZealPipe } from './zeal-pipes';
 import { bugsnag } from '..';
+import { getEverquestPids } from '../get-everquest-pids';
 
 export default class ZealPipeReader {
   private eqgamePids = new Set<number>();
@@ -21,12 +21,10 @@ export default class ZealPipeReader {
 
   // Find eqgame processes every 10 seconds and try to read zeal pipes
   private readZealPipes = async () => {
-    const processes = await find('name', 'eqgame');
-    processes
-      .filter((process) => !this.eqgamePids.has(process.pid))
-      .forEach((process) => {
-        this.readZealPipesForPid(process.pid);
-      });
+    const eqgamePids = await getEverquestPids();
+    eqgamePids
+      .filter((pid) => !this.eqgamePids.has(pid))
+      .forEach((pid) => this.readZealPipesForPid(pid));
   };
 
   private readZealPipesForPid = (pid: number) => {
